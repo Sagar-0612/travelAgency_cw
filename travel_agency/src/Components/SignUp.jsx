@@ -16,10 +16,10 @@ import {
   Checkbox,
 } from "@chakra-ui/react";
 
-const SignUp = () => {
+const SignUp = (props) => {
   return (
-    <Box>
-      <Heading as="h2" fontWeight="300" fontSize="20px" letterSpacing="-0.2px">
+    <Box w='70vh' h='80vh' margin='auto'>
+      <Heading as="h2" fontWeight="500" fontSize="25px" letterSpacing="-0.2px">
         Register
       </Heading>
       <Text> Please fill in the information below</Text>
@@ -87,7 +87,9 @@ const SignUp = () => {
 
                   <br />
                   <Button
-                    bg="#B8B8B8"
+                    className="SignUp"
+                    type="submit"
+                    bg="#161616"
                     border="none"
                     color="white"
                     width="105%"
@@ -96,6 +98,11 @@ const SignUp = () => {
                     size="lg"
                     fontSize="15"
                     cursor="pointer"
+                    _hover={{
+                      bg: 'white',
+                      color: 'black',
+                     transition: 'background-color 0.3s ease-in-out'
+                    }}
                   >
                     Create my Account
                   </Button>
@@ -107,15 +114,18 @@ const SignUp = () => {
       </Center>
       <Center as="footer" mt="16">
         <HStack spacing="4" pt="2">
-          <Link
+          <Button
+            onClick={() => props.onFormSwitch('login')}
+            border='none'
+            bg='white'
             className="fp"
             isExternal
             color="#515151"
-            href="/signup"
+           
             fontSize="xs"
           >
             Already registered? Log in!
-          </Link>
+          </Button>
         </HStack>
       </Center>
     </Box>

@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 
 
 
-const Login = () => {
+const Login = (props) => {
   // Define validation schema using Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email address').required('*Email is required'),
@@ -28,8 +28,8 @@ const Login = () => {
   };
 
   return (
-    <Box>
-      <Heading as="h2" fontWeight="300" fontSize="20px" letterSpacing="-0.2px">
+    <Box  w='65vh' h='80vh' margin='auto'>
+      <Heading as="h2" fontWeight="500" fontSize="25px" letterSpacing="-0.2px">
         Login
       </Heading>
       <Text>Please enter your e-mail and password</Text>
@@ -60,7 +60,7 @@ const Login = () => {
                         <Field
                           type="text"
                           name="email"
-                          placeholder="E-mail"
+                          placeholder="Enter your Email"
                           as={Input}
                           w="100%"
                           bg="white"
@@ -76,7 +76,7 @@ const Login = () => {
                         <Field
                           type="password"
                           name="password"
-                          placeholder="Password"
+                          placeholder="Enter your Password"
                           as={Input}
                           w="100%"
                           bg="white"
@@ -114,6 +114,7 @@ const Login = () => {
                         borderRadius="30px"
                         size="lg"
                         fontSize="15"
+                        cursor="pointer"
                         isLoading={isSubmitting}
                         _hover={{
                           bg: 'white',
@@ -146,9 +147,9 @@ const Login = () => {
 
       <Center as="footer" mt="16">
         <HStack spacing="4" pt="2">
-          <Link className="fp" isExternal color="#515151" to="/SignUp" fontSize="xs">
+          <Button onClick={() => props.onFormSwitch('register')} border='none' bg='white' className="fp" isExternal color="#515151" fontSize="xs">
             Don’t have an account?
-          </Link>
+          </Button>
         </HStack>
       </Center>
     </Box>
