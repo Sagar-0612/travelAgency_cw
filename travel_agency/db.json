@@ -256,5 +256,18 @@
     }
   ],
   "users": [],
-  "wishList": []
+  "wishList": [
+    {
+      "id": 7,
+      "title": "CRUISER WHEELS 58MM (83A)",
+      "price": 1999,
+      "description": "This is the Perfect Cruiser Wheel for the Indian streets. The diameter of this wheel is 58mm and the hardness is 83A. It has round edge on outside for better durability.  Say no to the vibrations! and enjoy the softer ride :). This wheel is specifically designed for cruising so doing tricks will be a bit harder, and due to lower softness it will be tough to power slide.",
+      "category": "accessories",
+      "image": "https://pisoskateboards.com/cdn/shop/products/Cruiser-58mm-Piso-wheel_800x.jpg?v=1643368271",
+      "rating": {
+        "rate": 4.2,
+        "count": 3782
+      }
+    }
+  ]
 }

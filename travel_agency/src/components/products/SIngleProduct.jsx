@@ -33,9 +33,11 @@ const btn_style1={
           const addToWishList=()=>{
             axios.get(`http://localhost:3000/allProducts/${id}`)
             .then((res)=>{
+              
               axios.post(`http://localhost:3000/wishList/`,res.data).
               then((resp)=>{
                 console.log(resp.data)
+                alert("Product successfully added to the wishlist!")
               })
             }).catch((err)=>{
               console.log(err)
@@ -49,6 +51,7 @@ const btn_style1={
                 axios.post(`http://localhost:3000/cart/`,res.data).
                 then((resp)=>{
                   console.log(resp.data)
+                  alert("Product successfully added to the cart!")
                 })
               }).catch((err)=>{
                 console.log(err)
