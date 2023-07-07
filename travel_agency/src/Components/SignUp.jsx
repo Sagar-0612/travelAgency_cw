@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -13,14 +13,58 @@ import {
   Stack,
   Text,
   VStack,
-  Checkbox,
 } from "@chakra-ui/react";
 
 const SignUp = (props) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+  
+    if (!firstName || !lastName || !email || !password || !privacyAccepted) {
+      alert("Please fill in all fields and accept the privacy policy.");
+      return;
+    }
+  
+    const user = {
+      firstName,
+      lastName,
+      email,
+      password
+    };
+  
+    // Convert user object to JSON string
+    const userJSON = JSON.stringify(user);
+  
+    // Store the user details in local storage
+    localStorage.setItem("user", userJSON);
+  
+    
+    if (firstName || lastName || email || password || privacyAccepted) {
+      alert("User signed up successfully!");
+      props.onFormSwitch('login')
+      return;
+    }
+  
+  
+    // Reset the form fields
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");
+    setPrivacyAccepted(false);
+  };
+  
+
   return (
-    <Box w='70vh' h='80vh' margin='auto'>
-      <Heading as="h2" fontWeight="500" fontSize="25px" letterSpacing="-0.2px">
-        Register
+    <Box>
+      <Heading as="h2" fontWeight="500" fontSize="30px" letterSpacing="-0.2px">
+        Create Account
       </Heading>
       <Text> Please fill in the information below</Text>
 
@@ -30,7 +74,7 @@ const SignUp = (props) => {
           <VStack as="header" spacing="6" mt="8"></VStack>
           <Card w="400px">
             <CardBody>
-              <form>
+              <form onSubmit={handleSignUp}>
                 <Stack spacing="4">
                   <FormControl marginBottom="10px">
                     <Input
@@ -42,6 +86,10 @@ const SignUp = (props) => {
                       size="lg"
                       padding="10px"
                       borderRadius="30px"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      required
+                      
                     />
                   </FormControl>
                   <FormControl marginBottom="10px">
@@ -54,6 +102,10 @@ const SignUp = (props) => {
                       size="lg"
                       padding="10px"
                       borderRadius="30px"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      required
+                      
                     />
                   </FormControl>
                   <FormControl marginBottom="10px">
@@ -66,6 +118,10 @@ const SignUp = (props) => {
                       size="lg"
                       padding="10px"
                       borderRadius="30px"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      
                     />
                   </FormControl>
                   <FormControl marginBottom="10px">
@@ -78,19 +134,28 @@ const SignUp = (props) => {
                       size="lg"
                       padding="10px"
                       borderRadius="30px"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      
                     />
                   </FormControl>
                   <label>
-                  <input type="checkbox"/>  I have read and I accept the privacy policy
+                    <input
+                      type="checkbox"
+                      checked={privacyAccepted}
+                      onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                      required
+                     
+                    />
+                    I have read and I accept the privacy policy
                   </label>
-                  
 
                   <br />
                   <Button
-                    className="SignUp"
+                   className="SignUp"
                     type="submit"
                     bg="#161616"
-                    border="none"
                     color="white"
                     width="105%"
                     padding="10px"
@@ -98,11 +163,7 @@ const SignUp = (props) => {
                     size="lg"
                     fontSize="15"
                     cursor="pointer"
-                    _hover={{
-                      bg: 'white',
-                      color: 'black',
-                     transition: 'background-color 0.3s ease-in-out'
-                    }}
+                    
                   >
                     Create my Account
                   </Button>
@@ -116,13 +177,13 @@ const SignUp = (props) => {
         <HStack spacing="4" pt="2">
           <Button
             onClick={() => props.onFormSwitch('login')}
-            border='none'
-            bg='white'
             className="fp"
             isExternal
             color="#515151"
-           
+            to="/login"
             fontSize="xs"
+            border="none"
+            bg="white"
           >
             Already registered? Log in!
           </Button>

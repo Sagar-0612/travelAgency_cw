@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 
 
 
+
 const Login = (props) => {
   // Define validation schema using Yup
   const validationSchema = Yup.object().shape({
@@ -20,16 +21,25 @@ const Login = (props) => {
 
   // Handle form submission
   const handleSubmit = (values, { setSubmitting }) => {
-    // Perform login logic here
-    console.log('Login successful!', values);
+    // Retrieve user details from local storage
+    const storedUserJSON = localStorage.getItem('user');
+    const storedUser = storedUserJSON ? JSON.parse(storedUserJSON) : null;
+
+    if (storedUser && storedUser.email === values.email && storedUser.password === values.password) {
+      alert('Login successful!');
+      // Redirect to homepage
+      window.location.href = '/homepage';
+    } else {
+      alert('Invalid email or password');
+    }
 
     // Reset the form
     setSubmitting(false);
   };
 
   return (
-    <Box  w='65vh' h='80vh' margin='auto'>
-      <Heading as="h2" fontWeight="500" fontSize="25px" letterSpacing="-0.2px">
+    <Box>
+      <Heading as="h2" fontWeight="500" fontSize="30px" letterSpacing="-0.2px">
         Login
       </Heading>
       <Text>Please enter your e-mail and password</Text>
@@ -37,7 +47,11 @@ const Login = (props) => {
       <Center>
         <Flex>
           <HStack spacing="20">
-            {/* Icons or images for social login buttons */}
+          <Center>
+        <Flex>
+          
+        </Flex>
+      </Center>
           </HStack>
         </Flex>
       </Center>
@@ -60,7 +74,7 @@ const Login = (props) => {
                         <Field
                           type="text"
                           name="email"
-                          placeholder="Enter your Email"
+                          placeholder="E-mail"
                           as={Input}
                           w="100%"
                           bg="white"
@@ -76,7 +90,7 @@ const Login = (props) => {
                         <Field
                           type="password"
                           name="password"
-                          placeholder="Enter your Password"
+                          placeholder="Password"
                           as={Input}
                           w="100%"
                           bg="white"
@@ -114,7 +128,6 @@ const Login = (props) => {
                         borderRadius="30px"
                         size="lg"
                         fontSize="15"
-                        cursor="pointer"
                         isLoading={isSubmitting}
                         _hover={{
                           bg: 'white',
@@ -131,23 +144,14 @@ const Login = (props) => {
             </CardBody>
           </Card>
           <br />
-
-          <Card variant="outline" borderColor="#d0d7de">
-            <CardBody>
-              <HStack fontSize="sm">
-                <Link isExternal color="#0969da" href="#">
-                  Manage subscriptions.
-                </Link>
-              </HStack>
-            </CardBody>
-          </Card>
         </Stack>
       </Center>
       <br />
 
       <Center as="footer" mt="16">
         <HStack spacing="4" pt="2">
-          <Button onClick={() => props.onFormSwitch('register')} border='none' bg='white' className="fp" isExternal color="#515151" fontSize="xs">
+          <Button onClick={() => props.onFormSwitch('register')} className="fp" isExternal color="#515151" to='/signup' fontSize="xs"
+          border="none" bg="white">
             Don’t have an account?
           </Button>
         </HStack>

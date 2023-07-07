@@ -3,7 +3,7 @@
   text-align: center;
 }
 .fp:hover{
-  color:#b8ddbe;
+  color:#1512cb;
 }
 .login:hover{
   background-color: transparent;
@@ -20,5 +20,5 @@
   -webkit-tap-highlight-color: initial;
   display: inline-block;
   overflow: hidden;
-  border: 2px solid black;
+ 
 }
