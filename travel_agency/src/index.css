@@ -1,4 +1,6 @@
-
+html{
+  background-color: rgb(219, 230, 230);
+}
 .App {
   text-align: center;
 }
@@ -7,7 +9,7 @@
 }
 .login:hover{
   background-color: transparent;
-  color:black;
+  
   z-index: 1;
   -webkit-tap-highlight-color: initial;
   display: inline-block;

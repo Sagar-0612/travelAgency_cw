@@ -63,7 +63,7 @@ const SignUp = (props) => {
 
   return (
     <Box>
-      <Heading as="h2" fontWeight="500" fontSize="30px" letterSpacing="-0.2px">
+      <Heading as="h2" fontWeight="700" color="#00a6c7" fontSize="35px" letterSpacing="-0.2px">
         Create Account
       </Heading>
       <Text> Please fill in the information below</Text>
@@ -155,7 +155,7 @@ const SignUp = (props) => {
                   <Button
                    className="SignUp"
                     type="submit"
-                    bg="#161616"
+                    bg="#009aab"
                     color="white"
                     width="105%"
                     padding="10px"
@@ -163,7 +163,11 @@ const SignUp = (props) => {
                     size="lg"
                     fontSize="15"
                     cursor="pointer"
-                    
+                    _hover={{
+                      bg: 'white',
+                      color: '#009aab',
+                     transition: 'background-color 0.3s ease-in-out'
+                    }}
                   >
                     Create my Account
                   </Button>
@@ -183,7 +187,7 @@ const SignUp = (props) => {
             to="/login"
             fontSize="xs"
             border="none"
-            bg="white"
+            bg="#DBE6E6"
           >
             Already registered? Log in!
           </Button>

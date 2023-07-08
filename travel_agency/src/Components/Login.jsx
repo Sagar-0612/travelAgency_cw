@@ -22,10 +22,10 @@ const Login = (props) => {
   // Handle form submission
   const handleSubmit = (values, { setSubmitting }) => {
     // Retrieve user details from local storage
-    const storedUserJSON = localStorage.getItem('user');
-    const storedUser = storedUserJSON ? JSON.parse(storedUserJSON) : null;
+    const UserJSON = localStorage.getItem('user');
+    const User = UserJSON ? JSON.parse(UserJSON) : null;
 
-    if (storedUser && storedUser.email === values.email && storedUser.password === values.password) {
+    if (User && User.email === values.email && User.password === values.password) {
       alert('Login successful!');
       // Redirect to homepage
       window.location.href = '/homepage';
@@ -39,7 +39,7 @@ const Login = (props) => {
 
   return (
     <Box>
-      <Heading as="h2" fontWeight="500" fontSize="30px" letterSpacing="-0.2px">
+      <Heading as="h2" fontWeight="700" fontSize="35px" letterSpacing="-0.2px" color="#00a6c7">
         Login
       </Heading>
       <Text>Please enter your e-mail and password</Text>
@@ -121,7 +121,7 @@ const Login = (props) => {
                       <Button
                         className="login"
                         type="submit"
-                        bg="#161616"
+                        bg="#009aab"
                         color="white"
                         width="105%"
                         padding="10px"
@@ -131,7 +131,7 @@ const Login = (props) => {
                         isLoading={isSubmitting}
                         _hover={{
                           bg: 'white',
-                          color: 'black',
+                          color: '#009aab',
                          transition: 'background-color 0.3s ease-in-out'
                         }}
                       >
@@ -151,7 +151,7 @@ const Login = (props) => {
       <Center as="footer" mt="16">
         <HStack spacing="4" pt="2">
           <Button onClick={() => props.onFormSwitch('register')} className="fp" isExternal color="#515151" to='/signup' fontSize="xs"
-          border="none" bg="white">
+          border="none" bg="#DBE6E6">
             Don’t have an account?
           </Button>
         </HStack>
