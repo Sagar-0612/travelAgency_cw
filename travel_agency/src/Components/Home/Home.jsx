@@ -6,19 +6,19 @@ import Img8 from "../Photos/Home_page/8.jpg"
 import Img3 from "../Photos/Home_page/3.jpg"
 import Img6 from "../Photos/Home_page/6.jpg"
 import Img4 from "../Photos/Home_page/4.jpg"
-import Navbar from './Navbar';
-import Footer from './Footer';
+import AllRoutes from './AllRoutes'
 const Home = () => {
   return (
     <>
-      <Navbar />
+    
+      
 
       <Box bg={"#e6e6e6"}>
 
 
         <Box bgImg={[Img8, Img8, 'none']} backgroundRepeat="no-repeat" backgroundPosition="center" bgSize="90%">
-          <Text mb={'-30px'} textAlign={'center'} fontSize={['10vh', '20vh', '30vh']} fontWeight={800}>CARVER</Text>
-          <Text fontSize={'20px'} w={"80%"} textAlign={'right'}>Sinse 1997</Text>
+          <Text color={'black'} mb={'-30px'} textAlign={'center'} fontSize={['10vh', '20vh', '30vh']} fontWeight={800}>CARVER</Text>
+          <Text fontSize={'20px'} w={"80%"} textAlign={'right'}>Since 1997</Text>
           <Box textAlign={'center'} >
             <Box mt={'60px'} display={'flex'} justifyContent={'space-around'}>
               <Box display={['none', 'none', 'block']} w={'15%'} m={5}><img src={Img7} /></Box>
@@ -50,6 +50,8 @@ const Home = () => {
               allowFullScreen />
           </AspectRatio>
         </Box>
+
+        <AllRoutes/>
 
 
         <Box textAlign={['center', 'center', 'left']} >
@@ -88,7 +90,7 @@ const Home = () => {
       </Box>
 
 
-      <Footer />
+      
     </>
   )
 }

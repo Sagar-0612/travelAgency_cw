@@ -3,6 +3,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
+    
     <Box bg={'black'} color={'white'} p={10}>
         <Box display={['block', 'block', 'flex']}>
           <Box w={["100%","100%","30%"]}>
@@ -23,25 +24,24 @@ const Footer = () => {
               <Text>Board selector</Text>
             </Box>
             <Box m={5}>
-              <Text>COMPANY</Text>
-              <Text>About us</Text>
-              <Text>Be an.ambassador</Text>
-              <Text>Team</Text>
-              <Text>Board selector</Text>
+              <Text>SUPPORT</Text>
+              <Text>Shipping and delivery</Text>
+              <Text>Return</Text>
+              <Text>FAQ</Text>
+              <Text>Size quide</Text>
             </Box>
             <Box m={5}>
-              <Text>COMPANY</Text>
-              <Text>About us</Text>
-              <Text>Be an.ambassador</Text>
-              <Text>Team</Text>
-              <Text>Board selector</Text>
+              <Text>INFO</Text>
+              <Text>Terms of service</Text>
+              <Text>Privacy</Text>
+              <Text>What the FAQ</Text>
+              <Text>Contacts</Text>
             </Box>
             <Box m={5}>
-              <Text>COMPANY</Text>
-              <Text>About us</Text>
-              <Text>Be an.ambassador</Text>
-              <Text>Team</Text>
-              <Text>Board selector</Text>
+              <Text>FOLLOW US</Text>
+              <Text>Twitter</Text>
+              <Text>Instagram</Text>
+              <Text>Facebook</Text>
             </Box>
           </Box>
         </Box>
